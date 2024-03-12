@@ -1,0 +1,95 @@
+
+// Styles
+@import '../../styles/variables';
+
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: $paddingBase * 2 $paddingBase*4;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: $secondaryColor;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  .todo-item {
+    display: flex;
+    align-items: center;
+    padding: $paddingBase;
+    border-bottom: 1px solid $borderColor;
+    justify-content: space-between;
+    background-color: $backgroundColor;
+    margin: $paddingBase / 2;
+    width: 32%;
+
+    &-info {
+      display: flex;
+      align-items: center;
+      max-width: 80%;
+    }
+
+    &-actions {
+      display: flex;
+
+      &-btn {
+        padding: $paddingBase / 5 $paddingBase / 3;
+        font-size: 12px;
+        margin-right: 0;
+
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+
+    .todo-text {
+      flex-grow: 1;
+      margin: 0 $paddingBase;
+      font-size: 18px;
+    }
+  }
+}
+
+.todo-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: $paddingBase;
+  margin-top: $paddingBase;
+  width: 100%;
+
+  .todo-input {
+    flex-grow: 1;
+    padding: $paddingBase;
+    border: 1px solid $borderColor;
+    border-radius: $inputBorderRadius;
+    max-width: 420px;
+    height: $inputHeight;
+    max-width: 550px;
+    height: 60px;
+  }
+
+  .todo-add-button {
+    padding: $paddingBase;
+    border: none;
+    border-radius: $inputBorderRadius;
+    background-color: $buttonColor;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: $paddingBase * 2;
+
+    &:hover {
+      background-color: $buttonHoverColor;
+    }
+  }
+}
