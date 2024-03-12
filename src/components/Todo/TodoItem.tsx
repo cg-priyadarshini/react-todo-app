@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { TodoItemProps } from "../../types/todo";
 import { Button, Input } from "../common";
 import {Tooltip} from 'react-tooltip';
