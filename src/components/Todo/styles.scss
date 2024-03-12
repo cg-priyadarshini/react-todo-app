@@ -30,6 +30,7 @@
     background-color: $backgroundColor;
     margin: $paddingBase / 2;
     width: 32%;
+    min-height: 64px;
 
     &-info {
       display: flex;

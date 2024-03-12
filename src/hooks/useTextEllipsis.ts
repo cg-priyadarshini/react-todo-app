@@ -1,39 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface TextEllipsisProps {
-  text: string;
+  text: string | "";
   maxLength: number;
+  showTooltip: boolean;
 }
-
-function useTextEllipsis({ text, maxLength }: TextEllipsisProps) {
-  const [ellipsisText, setEllipsisText] = useState(
-    text.length > maxLength ? text.substring(0, maxLength) + "..." : text
-  );
-  const textRef = useRef<HTMLSpanElement>(null);
+const useTextEllipsis = ({
+  text = "",
+  maxLength = 80,
+  showTooltip = false,
+}: TextEllipsisProps) => {
+  const [ellipsisText, setEllipsisText] = useState(text);
 
   useEffect(() => {
-    const element = textRef.current;
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      if (rect.width > element.clientWidth) {
-        // Calculate the number of characters to display before ellipsis
-        let ellipsisIndex = text.length;
-        while (
-          textRef.current!.scrollWidth > element.clientWidth &&
-          ellipsisIndex > 0
-        ) {
-          ellipsisIndex--;
-          textRef.current!.textContent =
-            text.substring(0, ellipsisIndex) + "...";
-        }
-        setEllipsisText(text.substring(0, ellipsisIndex) + "...");
-      } else {
-        setEllipsisText(text);
-      }
+    if (text.length > maxLength) {
+      const truncatedText = text.substring(0, maxLength - 3); // Account for ellipsis
+      setEllipsisText(truncatedText + "...");
+    } else {
+      setEllipsisText(text);
     }
   }, [text, maxLength]);
 
-  return ellipsisText;
-}
+  const tooltipContent = showTooltip && text.length > maxLength ? text : null;
+
+  return { ellipsisText, tooltipContent };
+};
 
 export default useTextEllipsis;

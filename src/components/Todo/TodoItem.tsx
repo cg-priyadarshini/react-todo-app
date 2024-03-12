@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TodoItemProps } from "../../types/todo";
 import { Button, Input } from "../common";
 import {Tooltip} from 'react-tooltip';
@@ -11,8 +11,10 @@ const TodoItem = ({
 }: TodoItemProps) => {
   const [editText, setEditText] = useState(todo.text);
   
+  
   const ref = useRef<HTMLSpanElement>(null);
-  const ellipsisText = useTextEllipsis({ text: todo.text, maxLength: 35 });
+  const { ellipsisText, tooltipContent } = useTextEllipsis({ text: editText, maxLength: 32, showTooltip: true });
+
   return (
     <div className="todo-item">
       <div className="todo-item-info">
@@ -31,9 +33,10 @@ const TodoItem = ({
             onChange={(e: any) => setEditText(e.target.value)}
           />
         ) : (
-          <><span className={`todo-text ${todo.completed ? "completed" : ""}`} ref={ref} data-tooltip-id="my-tooltip" data-tooltip-content={todo.text}>
+          <><span className={`todo-text ${todo.completed ? "completed" : ""}`} ref={ref} data-tooltip-id="my-tooltip" data-tooltip-content={tooltipContent}>
                 {ellipsisText}
-            </span><Tooltip id="my-tooltip" />
+            </span> {
+                tooltipContent ? <Tooltip id="my-tooltip" /> : ''}
             </>
         )}
       </div>
