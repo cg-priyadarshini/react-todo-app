@@ -3,6 +3,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../types/theme';
 import { Button } from '../common';
 
+// this component is used to switch light to dark theme and vice-versa 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
@@ -18,6 +19,7 @@ const ThemeSwitcher = () => {
   );
 }
 
+// light theme properties
 export const lightTheme: Theme = {
   backgroundColor: '#ecf0ef',
   textColor: '#000',
@@ -30,6 +32,7 @@ export const lightTheme: Theme = {
   secondaryButtonColor:'#3f51b5'
 };
 
+// dark theme properties
 export const darkTheme: Theme = {
   backgroundColor: '#292c35',
   textColor: '#fff',

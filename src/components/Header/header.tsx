@@ -14,7 +14,6 @@ export const Header = () => {
       <div className="header-title">
         <h1>TODO LIST</h1>
         <ThemeSwitcher />
-
        </div>
        
       </div>

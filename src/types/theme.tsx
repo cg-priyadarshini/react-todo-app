@@ -1,5 +1,3 @@
-// src/types/theme.d.ts
-
 export interface Theme {
   backgroundColor: string;
   textColor: string;
@@ -19,5 +17,5 @@ export interface ThemeContextProps {
 }
 
 export interface ThemeProps {
-  theme: Theme; // Assuming Theme is already defined as an interface
+  theme: Theme; 
 }

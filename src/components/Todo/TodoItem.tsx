@@ -10,8 +10,6 @@ const TodoItem = ({
   onEdit,
 }: TodoItemProps) => {
   const [editText, setEditText] = useState(todo.text);
-  
-  
   const ref = useRef<HTMLSpanElement>(null);
   const { ellipsisText, tooltipContent } = useTextEllipsis({ text: editText, maxLength: 32, showTooltip: true });
 

@@ -5,6 +5,7 @@ interface TextEllipsisProps {
   maxLength: number;
   showTooltip: boolean;
 }
+// This hook is used to truncate text if text length is greater than maxLength
 const useTextEllipsis = ({
   text = "",
   maxLength = 80,
@@ -14,7 +15,7 @@ const useTextEllipsis = ({
 
   useEffect(() => {
     if (text.length > maxLength) {
-      const truncatedText = text.substring(0, maxLength - 3); // Account for ellipsis
+      const truncatedText = text.substring(0, maxLength - 3);
       setEllipsisText(truncatedText + "...");
     } else {
       setEllipsisText(text);
