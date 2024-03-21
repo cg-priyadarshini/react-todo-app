@@ -39,4 +39,18 @@ body {
 }
 
 
-
+.notification-wrapper{
+    position: relative;
+    .count{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: -14px;
+}
+}

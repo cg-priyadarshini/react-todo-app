@@ -7,7 +7,7 @@ interface TodoFormProps {
 
 function TodoForm({ onAddTodo }: TodoFormProps) {
   const [newTodoText, setNewTodoText] = useState('');
-
+ 
   // this fn will get called on click of Add todo button
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

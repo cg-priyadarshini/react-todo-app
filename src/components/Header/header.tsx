@@ -3,8 +3,10 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import ThemeSwitcher from "../Theme/ThemeSwitcher";
+import { Button } from "../common";
+import { Todo } from "../../types/todo";
 
-export const Header = () => {
+export const Header = ({ todos }: { todos: Todo[] }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -15,6 +17,12 @@ export const Header = () => {
         <h1>TODO LIST</h1>
         <ThemeSwitcher />
        </div>
+
+            <div className="notification-wrapper">
+                <Button label="Total Count" type={"primary"} />
+            <span className="count">{todos.length}</span>
+            </div>
+
        
       </div>
   );
